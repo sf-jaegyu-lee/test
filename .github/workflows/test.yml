@@ -16,10 +16,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-    - users: actions/ heckout@v3
+    - uses: actions/checkout@v3
     - name: Test
-    - run: |
-      echo "NOW=$(python3 -c "import datetime; print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3])")" >> $GITHUB_ENV
-      echo $NOW
+      run: echo "NOW=$(python3 -c "import datetime; print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3])")" >> $GITHUB_ENV
     - name: print
-      echo ${{ env.NOW }}
+      run: |
+        echo ${{ env.NOW }}
+        echo $NOW
+
+
