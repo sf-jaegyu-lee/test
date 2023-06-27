@@ -1,0 +1,25 @@
+name: test
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        type: choice
+        description: channel
+        options:
+          - group_channel/group_channel
+          - group_channel/super_group_channel
+          - open_channel/live_streams
+          - open_channel/community
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - users: actions/ heckout@v3
+    - name: Test
+    - run: |
+      echo "NOW=$(python3 -c "import datetime; print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3])")" >> $GITHUB_ENV
+      echo $NOW
+    - name: print
+      echo ${{ env.NOW }}
