@@ -12,6 +12,9 @@ on:
           - open_channel/live_streams
           - open_channel/community
 
+run-name: Run with ${{ github.sha }} commit by ${{ github.actor }}
+
+
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -23,5 +26,7 @@ jobs:
       run: |
         echo ${{ env.NOW }}
         echo $NOW
+        cat $GITHUB
+        cat $GITHUB_ENV
 
 
