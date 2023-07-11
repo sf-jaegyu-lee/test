@@ -12,7 +12,7 @@ on:
           - open_channel/live_streams
           - open_channel/community
 
-run-name: Run with ${{ github.sha }} commit by ${{ github.actor }}
+run-name: Run with ${{ github.sha }}[0:4] commit by ${{ github.actor }}
 
 
 jobs:
